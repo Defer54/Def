@@ -121,3 +121,22 @@ local args = {
 game:GetService("ReplicatedStorage").Events.__DFfDD:FireServer(unpack(args))
 end
 end)
+     Section:NewButton("Teleport to Bekon", "ButtonInfo", function()
+    shared.teleport = true
+local TPCFrame = CFrame.new(-786.80072, 53.2000008, 794.998474, 0.995396972, 1.57902775e-08, -0.0958378017, -1.70134022e-08, 1, -1.19452865e-08, 0.0958378017, 1.35208289e-08, 0.995396972)--Put a new cframe or cframe property in here
+local User = game.Players.LocalPlayer.Character.HumanoidRootPart
+local WaitTime = 105 --Make More/Less depending if it works or not
+while shared.teleport do wait()
+spawn( function()
+wait(WaitTime)
+shared.teleport = false
+end)
+User.CFrame = TPCFrame
+local args = {
+    [1] = "__--r",
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position,
+    [3] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.Angles(0,0,0)
+}
+game:GetService("ReplicatedStorage").Events.__DFfDD:FireServer(unpack(args))
+end
+end)
